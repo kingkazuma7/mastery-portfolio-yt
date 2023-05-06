@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@sanity/client": "^5.4.2"
+  }
+}
