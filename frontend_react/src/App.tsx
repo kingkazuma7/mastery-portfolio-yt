@@ -3,7 +3,7 @@ import './App.scss';
 
 const App: FC = () => (
   <div className="app">
-    app
+    <h1>App</h1>
   </div>
 );
 
