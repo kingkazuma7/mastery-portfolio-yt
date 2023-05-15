@@ -4,20 +4,17 @@ const NavigationDots = () => {
   const [active, setActive] = useState('home');
 
   return (
-    <div className='app__navigation'>
-      {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map((item, index) => (
-        <a
-          key={item + index}
-          className={
-            active === item ? 'app__navigation-dot active' : 'app__navigation-dot'
-          }
-          href={`#${item}`}
-          onClick={() => setActive(item)}
-        >
-          {item}
-        </a>
-      ))}
-    </div>
+    <div className="app__navigation">
+    {['home', 'about', 'work', 'skills', 'testimonial', 'contact'].map((item, index) => (
+      // eslint-disable-next-line jsx-a11y/anchor-has-content
+      <a
+        href={`#${item}`}
+        key={item + index}
+        className="app__navigation-dot"
+        style={active === item ? { backgroundColor: '#313BAC' } : {}}
+      />
+    ))}
+  </div>
   );
 };
 
