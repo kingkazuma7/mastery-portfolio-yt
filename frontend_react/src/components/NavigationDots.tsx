@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React, { useState } from 'react';
 
-const NavigationDots = () => {
-  const [active, setActive] = useState('home');
+const NavigationDots = ({ active }) => {
+  console.log(active);
 
   return (
     <div className="app__navigation">
