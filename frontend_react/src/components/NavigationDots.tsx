@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 
 const NavigationDots = ({ active }) => {
-  console.log(active);
 
   return (
     <div className="app__navigation">
