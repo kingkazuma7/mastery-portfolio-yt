@@ -78,6 +78,9 @@
       width: 100%;
       text-transform: uppercase;
       text-align: left;
+      &.p-text {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -170,14 +173,15 @@
   height: 100%;
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   position: relative;
 
   img {
-    width: 100%;
+    width: 80%;
     object-fit: contain;
     z-index: 1;
+    margin-top: 8rem;
   }
 
   .overlay_circle {
