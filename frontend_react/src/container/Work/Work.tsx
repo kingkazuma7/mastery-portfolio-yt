@@ -40,7 +40,7 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">ギャラリー <span>集</span></h2>
+      <h2 className="head-text">ギャラリー集</h2>
 
       <div className="app__work-filter">
         {['仕事', '個人開発', '全て'].map((item, index) => (

@@ -56,7 +56,7 @@ const Footer = () => {
         <div>
           <textarea className="p-text" placeholder="本文" value={message} name="message" onChange={handleChangeInput} />
         </div>
-          <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? 'Send Message' : '送信中...'}</button>
+          <button type="button" className="p-text" onClick={handleSubmit}>{!loading ? '送信' : '送信中...'}</button>
       </div>
       ) : (
       <div>
