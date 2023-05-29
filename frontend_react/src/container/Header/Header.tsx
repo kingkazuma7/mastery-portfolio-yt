@@ -29,9 +29,14 @@ const Header = () => {
         <div className="badge-cmp app__flex">
           <span>👋</span>
           <div style={{ marginLeft: 20 }}>
-            <p className="p-text">Hello, I am</p>
             <h1 className="head-text">Kazuma Takanashi</h1>
           </div>
+        </div>
+
+        <div className="tag-cmp app__flex">
+          <p className="p-text">東京都江戸川区出身。29歳。</p>
+          <p className="p-text">Web業界に興味をもち、半年間スクールに通い、その後就職。</p>
+          <p className="p-text">業界歴は約4〜5年ほどになります。</p>
         </div>
       </div>
     </motion.div>
@@ -41,7 +46,7 @@ const Header = () => {
       transition={{ duration: 0.5, delayChildren: 0.5 }}
       className="app__header-img"
     >
-      <img src={images.profile} alt="profile_bg" />
+      <img src={images.kame} alt="profile_bg" />
       <motion.img
         whileInView={{ scale: [0, 1] }}
         transition={{ duration: 1, ease: 'easeInOut' }}

@@ -26,6 +26,10 @@ import about04 from '../assets/about04.png';
 import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.png';
+import kazlogo from '../assets/kazlogo.png';
+import human from '../assets/human.png';
+import kame from '../assets/kame.png';
+import nashi from '../assets/nashi.png';
 
 import adidas from '../assets/adidas.png';
 import amazon from '../assets/amazon.png';
@@ -62,6 +66,10 @@ const images = {
   profile,
   circle,
   logo,
+  kazlogo,
+  human,
+  kame,
+  nashi,
   adidas,
   amazon,
   asus,
