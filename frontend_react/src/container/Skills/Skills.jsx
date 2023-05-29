@@ -82,16 +82,17 @@ const Skills = () => {
                       key={work.name}
                     >
                       <h4 className="bold-text">{work.name}</h4>
-                      <p className="p-text">{work.company}</p>
-                    </motion.div>
+                      <p className="p-text">◾️{work.company}</p>
+                      <p className="p-text">{work.desc}</p>
                     <Tooltip
                       id={work.name}
                       effect="solid"
                       arrowColor="#fff"
                       className="skills-tooltip"
                     >
-                      {work.desc}
+                      <span>{work.desc}</span>
                     </Tooltip>
+                    </motion.div>
                   </React.Fragment>
                 ))}
               </motion.div>
