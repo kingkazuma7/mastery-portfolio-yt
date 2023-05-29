@@ -29,7 +29,13 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">スキル & 経験</h2>
+      {/* <h2 className="head-text">スキル & 経験</h2>
+      <a className="my-anchor-element">◕‿‿◕</a>
+      <a className="my-anchor-element">◕‿‿◕</a>
+      <a className="my-anchor-element">◕‿‿◕</a>
+      <ReactTooltip anchorSelect=".my-anchor-element" place="top">
+        Hello world!
+      </ReactTooltip> */}
 
       <div className="app__skills-container">
         <motion.div className='app__skills-list'>
@@ -55,16 +61,18 @@ const Skills = () => {
           {experiences.map((experience) => (
             <motion.div
               className="app__skills-exp-item"
-              key={experience.year}
+              key={experience._id}
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
-              <motion.div className="app__skills-exp-works">
+              <motion.div className="app__skills-exp-works"
+                key={experience._id}
+              >
                 {experience.works
                 .sort((a, b) => a.name.localeCompare(b.name))
                 .map((work) => (
-                  <>
+                  <React.Fragment key={work.name}>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
                       transition={{ duration: 0.5 }}
@@ -84,7 +92,7 @@ const Skills = () => {
                     >
                       {work.desc}
                     </ReactTooltip>
-                  </>
+                  </React.Fragment>
                 ))}
               </motion.div>
             </motion.div>
