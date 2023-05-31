@@ -22,8 +22,9 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  place-self: flex-start;
   // margin-right: 5rem;
 
   @media screen and (max-width: 900px) {

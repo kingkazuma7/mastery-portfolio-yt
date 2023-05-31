@@ -11,7 +11,7 @@ import { urlFor, client } from '../../client'; // リクエスト
 const Work = () => {
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('全て');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {

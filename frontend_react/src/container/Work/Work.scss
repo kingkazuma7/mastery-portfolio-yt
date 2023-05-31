@@ -46,6 +46,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  &::after {
+    display: block;
+    content: "";
+    width: calc(100% / 3);
+    height: 0;
+  }
 
   .app__work-item {
     width: 270px;
