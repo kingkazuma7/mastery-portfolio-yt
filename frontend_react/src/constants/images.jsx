@@ -29,6 +29,7 @@ import logo from '../assets/logo.png';
 import kazlogo from '../assets/kazlogo.png';
 import human from '../assets/human.png';
 import kame from '../assets/kame.png';
+import faceicon from '../assets/faceicon.png';
 import nashi from '../assets/nashi.png';
 
 import adidas from '../assets/adidas.png';
@@ -69,6 +70,7 @@ const images = {
   kazlogo,
   human,
   kame,
+  faceicon,
   nashi,
   adidas,
   amazon,
