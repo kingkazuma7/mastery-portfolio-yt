@@ -44,7 +44,11 @@
 .app__work-portfolio {
   display: grid;
   gap: 2rem;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  // grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
 
   .app__work-item {
     flex-direction: column;
