@@ -49,5 +49,11 @@ export default {
       title: 'Details',
       type: 'text',
     },
+    {
+      name: 'blurEffect',
+      title: 'Blur Effect',
+      type: 'boolean',
+      description: '画像にぼかしをいれるか判定する',
+    },
   ],
 }

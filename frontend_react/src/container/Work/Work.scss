@@ -88,6 +88,9 @@
     height: 100%;
     border-radius: 0.5rem;
     object-fit: cover;
+    &.blur-effect {
+      filter: blur(2px);
+    }
   }
 
   @media screen and (min-width: 2000px) {
