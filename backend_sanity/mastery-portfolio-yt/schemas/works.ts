@@ -55,5 +55,16 @@ export default {
       type: 'boolean',
       description: '画像にぼかしをいれるか判定する',
     },
+    {
+      name: 'year',
+      title: 'Year',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.regex(/^(\d{4})(\d{2})$/, {
+          name: 'YYYYMM',
+          invert: false,
+        }),
+      description: 'YYYYMMの表記(例：202208)',
+    },
   ],
 }
