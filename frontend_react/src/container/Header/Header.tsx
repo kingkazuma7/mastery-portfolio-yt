@@ -34,10 +34,10 @@ const Header = () => {
         </div>
 
         <div className="tag-cmp app__flex">
-          <p className="p-text">東京都江戸川区出身。29歳。</p>
+          <p className="p-text">東京都江戸川区出身。30歳。</p>
           <p className="p-text">Web業界に興味をもち、半年間スクールに通い、その後就職。</p>
-          <p className="p-text">業界歴は約4〜5年ほどになります。</p>
-          <p className="p-text">直近のPJでは、主にフロントエンド業務に携わっています。</p>
+          <p className="p-text">業界歴は約5年ほどになります。</p>
+          <p className="p-text">直近のPJでは、ゴルフ場予約サイトのフロントエンド業務に携わっています。</p>
         </div>
       </div>
     </motion.div>
