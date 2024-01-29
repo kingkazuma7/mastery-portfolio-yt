@@ -150,10 +150,26 @@
 
   .app__work-tag {
     position: absolute;
-
     padding: 0.5rem 1rem;
     border-radius: 10px;
     background-color: #fff;
     top: -25px;
+    border: 1.5px solid #ccc;
+  }
+
+  .app__work-pj {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1rem;
+  }
+
+  .app__work-pjLink {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    > svg {
+      font-size: 1.6rem;
+      color: initial;
+    }
   }
 }
