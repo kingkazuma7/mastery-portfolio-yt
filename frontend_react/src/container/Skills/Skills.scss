@@ -130,8 +130,14 @@
   margin-right: 3rem;
 
   p {
-    font-weight: 800;
     color: var(--secondary-color);
+    &.month {
+      font-size: .8rem;
+      @media screen and (max-width: 450px) {
+        font-size: .6rem;
+        font-weight: bold;
+      }
+    }
   }
 
   @media screen and (max-width: 450px) {
