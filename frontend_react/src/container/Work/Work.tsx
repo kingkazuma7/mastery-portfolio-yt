@@ -73,8 +73,8 @@ const Work = () => {
                 <p className="p-text">{work.tags[0]}</p>
               </div>
               <div className="app__work-pj">
-                <a className='app__work-pjLink' href={work.projectLink}><AiFillEye />Image</a>
-                <a className='app__work-pjLink' href={work.projectLink}><AiFillGithub />GitHub</a>
+                {work.projectLink && <a className='app__work-pjLink' target='_blank' href={work.projectLink} rel="noreferrer"><AiFillEye />Image</a>}
+                {work.codeLink && <a className='app__work-pjLink' target='_blank' href={work.codeLink} rel="noreferrer"><AiFillGithub />GitHub</a>}
               </div>
             </div>
           </div>
