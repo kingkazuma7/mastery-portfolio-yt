@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'month',
+      title: 'Month',
+      type: 'number',
+    },
+    {
       name: 'works',
       title: 'Works',
       type: 'array',

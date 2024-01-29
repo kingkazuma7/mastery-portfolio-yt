@@ -36,6 +36,7 @@ const Skills = () => {
       <Tooltip anchorSelect=".my-anchor-element" place="top">
         Hello world!
       </Tooltip> */}
+      <h2 className="head-text">経歴</h2>
 
       <div className="app__skills-container">
         <motion.div className='app__skills-list'>
@@ -65,6 +66,7 @@ const Skills = () => {
             >
               <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
+                <p className="month">{experience.month ? `${experience.month}月〜` : ''}</p>
               </div>
               <motion.div className="app__skills-exp-works"
                 key={experience._id}
