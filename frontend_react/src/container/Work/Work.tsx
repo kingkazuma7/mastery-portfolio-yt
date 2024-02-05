@@ -75,20 +75,12 @@ const Work = () => {
         ))}
       </div>
 
-
       <DetailModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Work Details"
-      >
-        {selectedWorkDetails && (
-          <>
-            {/* <h2>{selectedWorkDetails.title}</h2> */}
-            <p dangerouslySetInnerHTML={{ __html: selectedWorkDetails }}></p>
-            <button onClick={closeModal}>Close</button>
-          </>
-        )}
-      </DetailModal>
+        selectedWorkDetails={selectedWorkDetails}
+      />
 
       <div
         animate={animateCard}
