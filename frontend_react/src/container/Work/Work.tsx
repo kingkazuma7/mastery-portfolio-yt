@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { AppWrap, MotionWrap } from '../../wrapper';
 import "./Work.scss";
 import { urlFor, client } from '../../client'; // リクエスト
+import DetailModal from '../../components/DetailModal/DetailModal';
 
 
 
@@ -13,6 +14,26 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('全て');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedWorkDetails, setSelectedWorkDetails] = useState(null);
+
+
+  const handleCardClick = async (workItem) => {
+    if (workItem.details && workItem.details !== '') {
+      setSelectedWorkDetails(workItem.details)
+      openModal();
+    } else {
+      console.log("案件の説明が空です");
+    }
+  }
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -54,13 +75,23 @@ const Work = () => {
         ))}
       </div>
 
+      <DetailModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Work Details"
+        selectedWorkDetails={selectedWorkDetails}
+      />
+
       <div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__work-portfolio"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
+          <div className="app__work-item app__flex"
+            key={index}
+            onClick={() => handleCardClick(work)}
+          >
             <div
               className="app__work-img app__flex"
             >

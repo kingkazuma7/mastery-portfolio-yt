@@ -47,7 +47,8 @@ export default {
     {
       name: 'details',
       title: 'Details',
-      type: 'text',
+      type: 'array',
+      of: [{type: 'block'}],
     },
     {
       name: 'blurEffect',
