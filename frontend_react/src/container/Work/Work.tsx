@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
+import Modal from 'react-modal';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import "./Work.scss";
@@ -13,6 +14,18 @@ const Work = () => {
   const [filterWork, setFilterWork] = useState([]);
   const [activeFilter, setActiveFilter] = useState('全て');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  }
+  const closeModal = () => {
+    setModalIsOpen(false);
+  }
+  const handleWorkModal = () => {
+    console.log('handleWorkModal');
+    openModal();
+  }
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -53,6 +66,15 @@ const Work = () => {
           </div>
         ))}
       </div>
+
+      <button onClick={handleWorkModal}>モーダル</button>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="my modal"
+      >
+        <button onClick={closeModal}>close</button>
+      </Modal>
 
       <div
         animate={animateCard}
