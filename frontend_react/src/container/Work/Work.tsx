@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
-import Modal from 'react-modal';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import "./Work.scss";
 import { urlFor, client } from '../../client'; // リクエスト
+import DetailModal from '../../components/DetailModal/DetailModal';
 
 
 
@@ -76,19 +76,19 @@ const Work = () => {
       </div>
 
 
-      <Modal
+      <DetailModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Work Details"
       >
         {selectedWorkDetails && (
           <>
-            <h2>{selectedWorkDetails.title}</h2>
+            {/* <h2>{selectedWorkDetails.title}</h2> */}
             <p dangerouslySetInnerHTML={{ __html: selectedWorkDetails }}></p>
             <button onClick={closeModal}>Close</button>
           </>
         )}
-      </Modal>
+      </DetailModal>
 
       <div
         animate={animateCard}
