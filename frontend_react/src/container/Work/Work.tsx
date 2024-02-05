@@ -15,17 +15,25 @@ const Work = () => {
   const [activeFilter, setActiveFilter] = useState('全て');
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedWorkDetails, setSelectedWorkDetails] = useState(null);
+
+
+  const handleCardClick = async (workItem) => {
+    if (workItem.details && workItem.details !== '') {
+      setSelectedWorkDetails(workItem.details)
+      openModal();
+    } else {
+      console.log("案件の説明が空です");
+    }
+  }
 
   const openModal = () => {
     setModalIsOpen(true);
-  }
+  };
   const closeModal = () => {
     setModalIsOpen(false);
-  }
-  const handleWorkModal = () => {
-    console.log('handleWorkModal');
-    openModal();
-  }
+  };
+
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -67,13 +75,19 @@ const Work = () => {
         ))}
       </div>
 
-      <button onClick={handleWorkModal}>モーダル</button>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="my modal"
+        contentLabel="Work Details"
       >
-        <button onClick={closeModal}>close</button>
+        {selectedWorkDetails && (
+          <>
+            <h2>{selectedWorkDetails.title}</h2>
+            <p dangerouslySetInnerHTML={{ __html: selectedWorkDetails }}></p>
+            <button onClick={closeModal}>Close</button>
+          </>
+        )}
       </Modal>
 
       <div
@@ -82,7 +96,10 @@ const Work = () => {
         className="app__work-portfolio"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
+          <div className="app__work-item app__flex"
+            key={index}
+            onClick={() => handleCardClick(work)}
+          >
             <div
               className="app__work-img app__flex"
             >
