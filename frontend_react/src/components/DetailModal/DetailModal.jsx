@@ -25,6 +25,7 @@ const DetailModal = ({ isOpen, onRequestClose, selectedWorkDetails }) => {
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Work Details"
+      className="my-custom-modal"
     >
       <BlockContent blocks={selectedWorkDetails} />
       <button className="detail-modal-close-btn" onClick={onRequestClose}>閉じる</button>
