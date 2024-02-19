@@ -36,12 +36,19 @@ const Work = () => {
 
 
   useEffect(() => {
-    const query = '*[_type == "works"]';
-
-    client.fetch(query).then((data) => {
-      setWorks(data);
-      setFilterWork(data);
-    });
+    const fetchData = async () => {
+      const query = '*[_type == "works"]';
+      try {
+        const query = '*[_type == "works"]';
+        const data = await client.fetch(query);
+        console.log('Fetched data:', data);
+        setWorks(data);
+        setFilterWork(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
   }, []);
 
   const handleWorkFilter = (item) => {
