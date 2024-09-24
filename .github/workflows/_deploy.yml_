@@ -1,0 +1,26 @@
+name: deploy to mixhost
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: ssh key generate
+        run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.MIXHOST_SECRET_KEY }}
+      - name: rsync deployments
+        uses: burnett01/rsync-deployments@5.1
+        with:
+          switches: -avz --delete
+          path: /frontend_react/build
+          remote_path: /public_html/portfolio02
+          remote_host: nasio7.mixh.jp
+          remote_user: pmlyknzb
+          remote_port: 22
+          remote_key: ${{ secrets.MIXHOST_SECRET_KEY }}
