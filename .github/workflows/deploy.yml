@@ -13,7 +13,7 @@ jobs:
         - name: ssh key generate
           run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
           env:
-            SSH_PRIVATE_KEY: ${{ secrets.20210920_m1_github_rsa.pub_Add }} #githubに登録したmixhostへの秘密鍵を指定
+            SSH_PRIVATE_KEY: ${{ secrets.MIXHOST_SECRET_KEY }} #githubに登録したmixhostへの秘密鍵を指定
         - name: rsync deployments
           uses: burnett01/rsync-deployments@5.1
           with:
@@ -23,4 +23,4 @@ jobs:
             remote_host: nasio7.mixh.jp
             remote_user: pmlyknzb
             remote_port: 22
-            remote_key: ${{ secrets.20210920_m1_github_rsa.pub_Add }}
+            remote_key: ${{ secrets.MIXHOST_SECRET_KEY }}
