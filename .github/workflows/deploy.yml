@@ -1,0 +1,26 @@
+name: deploy to mixhost
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - name: ssh key generate
+          run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
+          env:
+            SSH_PRIVATE_KEY: ${{ secrets.20210920_m1_github_rsa.pub_Add }} #githubに登録したmixhostへの秘密鍵を指定
+        - name: rsync deployments
+          uses: burnett01/rsync-deployments@5.1
+          with:
+            switches: -avz --delete
+            path: /frontend_react/build #mixhostに送りたいファイルのあるパスを指定
+            remote_path: /public_html/portfolio02 #mixhostのどこに同期させるか
+            remote_host: nasio7.mixh.jp
+            remote_user: pmlyknzb
+            remote_port: 22
+            remote_key: ${{ secrets.20210920_m1_github_rsa.pub_Add }}
