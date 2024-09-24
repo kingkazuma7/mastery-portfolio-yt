@@ -1,2 +1,3 @@
 node_module*
 memo.md
+github/workflows/deploy.yml
