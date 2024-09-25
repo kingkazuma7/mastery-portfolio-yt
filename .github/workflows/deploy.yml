@@ -1,0 +1,12 @@
+name: deploy to mixhost
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World"
