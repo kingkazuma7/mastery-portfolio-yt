@@ -55,9 +55,17 @@ const Work = () => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
       if (item === '全て') {
-        setFilterWork(works);
+        const publishedWorks = works.filter(
+          (work) => !work._id.startsWith('drafts.'),
+        );
+        setFilterWork(publishedWorks);
       } else {
-        setFilterWork(works.filter((work) => work.tags.includes(item)));
+        const publishedWorks = works.filter(
+          (work) => !work._id.startsWith('drafts.'),
+        );
+        setFilterWork(
+          publishedWorks.filter((work) => work.tags.includes(item)),
+        );
       }
     }, 500);
   };
