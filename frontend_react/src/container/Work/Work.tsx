@@ -37,9 +37,14 @@ const Work = () => {
       try {
         const query = '*[_type == "works"]';
         const data = await client.fetch(query);
-        console.log('Fetched data:', data);
-        setWorks(data);
-        setFilterWork(data);
+        // console.log('Fetched data:', data);
+        const sortedData = [...data].sort((a, b) => {
+          if (a.isNew && !b.isNew) return -1;
+          if (!a.isNew && b.isNew) return 1;
+          return 0;
+        });
+        setWorks(sortedData); // 下の作品リスト更新: 保存
+        setFilterWork(sortedData); // 表示する作品リストを更新 : 画面の表示
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -58,14 +63,25 @@ const Work = () => {
         const publishedWorks = works.filter(
           (work) => !work._id.startsWith('drafts.'),
         );
-        setFilterWork(publishedWorks);
+        const sortedWorks = [...publishedWorks].sort((a, b) => {
+          if (a.isNew && !b.isNew) return -1;
+          if (!a.isNew && b.isNew) return 1;
+          return 0;
+        });
+        setFilterWork(sortedWorks);
       } else {
         const publishedWorks = works.filter(
           (work) => !work._id.startsWith('drafts.'),
         );
-        setFilterWork(
-          publishedWorks.filter((work) => work.tags.includes(item)),
+        const filteredWorks = publishedWorks.filter((work) =>
+          work.tags.includes(item),
         );
+        const sortedWorks = [...filteredWorks].sort((a, b) => {
+          if (a.isNew && !b.isNew) return -1;
+          if (!a.isNew && b.isNew) return 1;
+          return 0;
+        });
+        setFilterWork(sortedWorks);
       }
     }, 500);
   };
