@@ -112,6 +112,8 @@ const Work = () => {
                 alt={work.name}
                 className={work.blurEffect ? 'blur-effect' : ''}
               />
+              {work.isNew}
+              {work.isNew && <div className="app__work-new-tag">NEW</div>}
             </div>
             <div className="app__work-content app__flex">
               <h4 className="bold-text">{work.title}</h4>

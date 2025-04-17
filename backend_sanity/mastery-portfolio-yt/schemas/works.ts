@@ -57,6 +57,12 @@ export default {
       description: '画像にぼかしをいれるか判定する',
     },
     {
+      name: 'isNew',
+      title: 'New Tag',
+      type: 'boolean',
+      description: 'NEWタグを表示するかどうか',
+    },
+    {
       name: 'year',
       title: 'Year',
       type: 'string',
