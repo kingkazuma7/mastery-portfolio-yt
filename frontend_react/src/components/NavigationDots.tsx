@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './NavigationDots/NavigationDots.scss';
 
 interface NavigationDotsProps {
@@ -10,20 +10,28 @@ interface NavigationDotsProps {
 const NavigationDots: React.FC<NavigationDotsProps> = ({ active }) => {
   const [clickedDot, setClickedDot] = useState<string | null>(null);
 
-  // URLのハッシュが変更されたときにclickedDotを更新
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      setClickedDot(hash || 'home');
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
   const handleClick = (item: string) => {
     setClickedDot(item);
-    window.location.hash = item;
+  };
+
+  const getDotClassName = (item: string) => {
+    let className = 'app__navigation-dot';
+
+    // クリックされたことがある場合
+    if (clickedDot) {
+      // クリックされたドットかどうか
+      if (clickedDot === item) {
+        className += ' active';
+      }
+    } else {
+      // 初期状態
+      // 親から渡されたactiveと一致するか
+      if (active === item) {
+        className += ' active';
+      }
+    }
+
+    return className;
   };
 
   return (
@@ -32,9 +40,7 @@ const NavigationDots: React.FC<NavigationDotsProps> = ({ active }) => {
         <a
           href={`#${item}`}
           key={item + index}
-          className={`app__navigation-dot ${
-            clickedDot === item ? 'active' : ''
-          }`}
+          className={getDotClassName(item)}
           onClick={() => handleClick(item)}
         />
       ))}
