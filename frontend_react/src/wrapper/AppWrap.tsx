@@ -1,21 +1,36 @@
 import React from 'react';
 import { NavigationDots, SocialMedia } from '../components';
 
-const AppWrap = (Component, idName, classNames) => function HOC() {
-  return (
-    <div id={idName} className={`app__container ${classNames}`}>
-      <SocialMedia />
-      <div className="app__wrapper app__flex">
-        <Component />
+interface AppWrapProps {
+  Component: React.ComponentType;
+  idName: string;
+  classNames?: string;
+}
 
-        <div className="copyright">
-          <p className="p-text">@2023 Kazuma Takanashi</p>
-          <p className="p-text">All rights reserved</p>
+const AppWrap = (
+  Component: React.ComponentType,
+  idName: string,
+  classNames: string = '',
+) =>
+  function HOC() {
+    // URLのハッシュ部分を取得し、activeなセクションを判定
+    const hash = window.location.hash.slice(1); // #を除去
+    const activeSection = hash || 'home'; // ハッシュがない場合はhome
+
+    return (
+      <div id={idName} className={`app__container ${classNames}`}>
+        <SocialMedia />
+        <div className="app__wrapper app__flex">
+          <Component />
+
+          <div className="copyright">
+            <p className="p-text">@2023 Kazuma Takanashi</p>
+            <p className="p-text">All rights reserved</p>
+          </div>
         </div>
+        <NavigationDots active={activeSection} />
       </div>
-      <NavigationDots active={idName} />
-    </div>
-  );
-};
+    );
+  };
 
 export default AppWrap;
