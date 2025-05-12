@@ -33,6 +33,20 @@ export default {
       },
     },
     {
+      name: 'previewImages',
+      title: 'Preview Images',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+      description: '詳細モーダルで表示する画像を追加できます',
+    },
+    {
       name: 'tags',
       title: 'Tags',
       type: 'array',
