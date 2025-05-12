@@ -53,8 +53,8 @@ const DetailModal = ({ isOpen, onRequestClose, selectedWorkDetails }) => {
         contentLabel="Work Details"
         className="my-custom-modal"
       >
+        <button className="modal-close-btn" onClick={onRequestClose}>×</button>
         <BlockContent blocks={selectedWorkDetails?.details} />
-        <button className="detail-modal-close-btn" onClick={onRequestClose}>閉じる</button>
         {selectedWorkDetails?.previewImages && selectedWorkDetails.previewImages.length > 0 && (
           <button className="detail-modal-image-btn" onClick={openImageModal}>画像を見る</button>
         )}
@@ -66,6 +66,7 @@ const DetailModal = ({ isOpen, onRequestClose, selectedWorkDetails }) => {
         contentLabel="Image Preview"
         className="image-preview-modal"
       >
+        <button className="modal-close-btn" onClick={closeImageModal}>×</button>
         <div className="image-preview-container">
           {selectedWorkDetails?.previewImages && selectedWorkDetails.previewImages.length > 0 && (
             <>
@@ -98,7 +99,6 @@ const DetailModal = ({ isOpen, onRequestClose, selectedWorkDetails }) => {
             </>
           )}
         </div>
-        <button className="detail-modal-close-btn" onClick={closeImageModal}>閉じる</button>
       </Modal>
     </>
   )
