@@ -17,7 +17,10 @@ const Work = () => {
 
   const handleCardClick = async (workItem) => {
     if (workItem.details && workItem.details !== '') {
-      setSelectedWorkDetails(workItem.details);
+      setSelectedWorkDetails({
+        details: workItem.details,
+        previewImages: workItem.previewImages,
+      });
       openModal();
     } else {
       console.log('案件の説明が空です');
@@ -109,6 +112,7 @@ const Work = () => {
         onRequestClose={closeModal}
         contentLabel="Work Details"
         selectedWorkDetails={selectedWorkDetails}
+        previewImages={selectedWorkDetails?.previewImages}
       />
 
       <div
