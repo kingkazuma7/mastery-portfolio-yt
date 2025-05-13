@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AiFillEye, AiFillGithub } from 'react-icons/ai';
+import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
@@ -153,8 +153,8 @@ const Work = () => {
                     href={work.projectLink}
                     rel="noreferrer"
                   >
-                    <AiFillEye />
-                    Image
+                    <AiOutlineLink />
+                    ページ
                   </a>
                 )}
                 {work.codeLink && (
