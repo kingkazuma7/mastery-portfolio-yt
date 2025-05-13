@@ -15,7 +15,12 @@ const Work = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedWorkDetails, setSelectedWorkDetails] = useState(null);
 
-  const handleCardClick = async (workItem) => {
+  const handleCardClick = async (workItem, event) => {
+    // aタグのクリックの場合はモーダルを開かない
+    if (event.target.tagName.toLowerCase() === 'a') {
+      return;
+    }
+
     if (workItem.details && workItem.details !== '') {
       setSelectedWorkDetails({
         details: workItem.details,
@@ -124,7 +129,7 @@ const Work = () => {
           <div
             className="app__work-item app__flex"
             key={index}
-            onClick={() => handleCardClick(work)}
+            onClick={(e) => handleCardClick(work, e)}
           >
             <div className="app__work-img app__flex">
               <img
@@ -152,6 +157,7 @@ const Work = () => {
                     target="_blank"
                     href={work.projectLink}
                     rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <AiOutlineLink />
                     ページ
@@ -163,6 +169,7 @@ const Work = () => {
                     target="_blank"
                     href={work.codeLink}
                     rel="noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <AiFillGithub />
                     GitHub
