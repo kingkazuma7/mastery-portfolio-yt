@@ -10,7 +10,7 @@
   max-height: 80vh;
   min-height: 50vh;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -45,6 +45,7 @@
   border-radius: 50%;
   transition: background-color 0.3s;
   line-height: 1;
+  z-index: 10000;
 
   @media screen and (max-width: 450px) {
     font-size: 28px;

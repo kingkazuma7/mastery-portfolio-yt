@@ -9,14 +9,26 @@ const DetailModal = ({ isOpen, onRequestClose, selectedWorkDetails }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
+    const headerImg = document.querySelector('.app__header-img img');
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      console.log(headerImg);
+
+      if (headerImg) {
+        headerImg.style.zIndex = '0';
+      }
     } else {
       document.body.style.overflow = 'unset';
+      if (headerImg) {
+        headerImg.style.zIndex = '1';
+      }
     }
 
     return () => {
       document.body.style.overflow = 'unset';
+      if (headerImg) {
+        headerImg.style.zIndex = '1';
+      }
     };
   }, [isOpen]);
 
