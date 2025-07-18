@@ -25,6 +25,7 @@ const Work = () => {
       setSelectedWorkDetails({
         details: workItem.details,
         previewImages: workItem.previewImages,
+        previewVideo: workItem.previewVideo?.asset,
       });
       openModal();
     } else {
@@ -41,18 +42,23 @@ const Work = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = '*[_type == "works"]';
       try {
-        const query = '*[_type == "works"]';
+        const query = `*[_type == "works"]{
+          ...,
+          previewVideo {
+            asset-> {
+              url
+            }
+          }
+        }`;
         const data = await client.fetch(query);
-        // console.log('Fetched data:', data);
         const sortedData = [...data].sort((a, b) => {
           if (a.isNew && !b.isNew) return -1;
           if (!a.isNew && b.isNew) return 1;
           return 0;
         });
-        setWorks(sortedData); // 下の作品リスト更新: 保存
-        setFilterWork(sortedData); // 表示する作品リストを更新 : 画面の表示
+        setWorks(sortedData);
+        setFilterWork(sortedData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
