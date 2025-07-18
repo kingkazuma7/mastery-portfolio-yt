@@ -1,3 +1,5 @@
+import {Rule} from '@sanity/types'
+
 export default {
   name: 'works',
   title: 'Works',
@@ -45,6 +47,15 @@ export default {
         },
       ],
       description: '詳細モーダルで表示する画像を追加できます',
+    },
+    {
+      name: 'previewVideo', // 単数形に変更
+      title: 'Preview Video', // 単数形に変更
+      type: 'file', // array型から単一のfile型に変更
+      options: {
+        accept: 'video/*',
+      },
+      description: '詳細モーダルで表示する動画を追加できます（推奨：MP4形式、最大サイズ：100MB）',
     },
     {
       name: 'tags',
